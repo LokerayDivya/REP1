@@ -1,5 +1,8 @@
 package com.training.sanity.tests;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeClass;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -43,13 +46,18 @@ public class LoginTests {
 	@AfterMethod
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
-		driver.quit();
+		//driver.quit();
 	}
 	@Test
 	public void validLoginTest() {
-		loginPOM.sendUserName("admin");
-		loginPOM.sendPassword("admin@123");
+		loginPOM.login();
+		loginPOM.Register();
+		loginPOM.sendEmail("divyal11@in.ibm.com");
+		loginPOM.sendFirstName("Anne");
+		loginPOM.sendLastName("Divya");
 		loginPOM.clickLoginBtn(); 
-		screenShot.captureScreenShot("First");
+		//screenShot.captureScreenShot("First");
+		
+		
 	}
 }

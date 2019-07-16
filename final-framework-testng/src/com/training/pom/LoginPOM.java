@@ -13,24 +13,59 @@ public class LoginPOM {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(id="login")
-	private WebElement userName; 
+	@FindBy(xpath="//a[@class='sign-in']")
+	private WebElement login; 
 	
-	@FindBy(id="password")
-	private WebElement password;
+	@FindBy(xpath="//a[text()='Register']")
+	private WebElement Register;
 	
-	@FindBy(id="formLogin_submitAuth")
-	private WebElement loginBtn; 
+	@FindBy(xpath="//input[@id='email']")
+	private WebElement Email; 
 	
-	public void sendUserName(String userName) {
-		this.userName.clear();
-		this.userName.sendKeys(userName);
+	@FindBy(xpath="//input[@id='first-name']")
+	private WebElement First;
+	
+	@FindBy(xpath="//input[@id='last-name']")
+	private WebElement Last;
+	
+	@FindBy(xpath="(//input[@type='submit'])[2]")
+	private WebElement loginBtn;
+	
+		
+	public void login() {
+		this.login.click();
+	}	
+		public void Register() {
+			this.Register.click();
+	}
+		
+		public void sendEmail(String Email) {
+			this.Email.clear();
+			this.Email.sendKeys(Email);
+		}
+		
+		public void sendFirstName(String First) {
+			this.First.clear();
+			this.First.sendKeys(First);
+		}
+
+		
+	public void sendLastName(String Last) {
+		this.Last.clear(); 
+		this.Last.sendKeys(Last); 
+	}
+		
+	public void sendUserName(String First) {
+			this.First.clear();
+			this.First.sendKeys(First);
+		}
+	
+		
+	public void sendPassword(String Last) {
+		this.Last.clear(); 
+		this.Last.sendKeys(Last); 
 	}
 	
-	public void sendPassword(String password) {
-		this.password.clear(); 
-		this.password.sendKeys(password); 
-	}
 	
 	public void clickLoginBtn() {
 		this.loginBtn.click(); 
