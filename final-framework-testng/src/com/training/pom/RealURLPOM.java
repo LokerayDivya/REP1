@@ -1,5 +1,6 @@
 package com.training.pom;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -50,7 +51,7 @@ public class RealURLPOM {
 	private WebElement Status;
 	
 	@FindBy(xpath="//input[@name='_location']")
-	private WebElement Location; 
+	private WebElement location; 
 	
 	@FindBy(xpath="//input[@name='_possession']")
 	private WebElement Possession;
@@ -58,8 +59,11 @@ public class RealURLPOM {
 	@FindBy(xpath="//a[text()='Location']")
 	private WebElement Loc;
 	
-	@FindBy(xpath="//input[@id='_address']")
+	@FindBy(xpath="//input[@id='_friendly_address']")
 	private WebElement Address; 
+	
+	@FindBy(xpath="//input[@name='_address']")
+	private WebElement GoogleAddress; 
 	
 	@FindBy(xpath="//input[contains(@id,'_lat')]")
 	private WebElement Lat;
@@ -73,10 +77,10 @@ public class RealURLPOM {
 	@FindBy(xpath="//input[@id='_storage_room']")
 	private WebElement Store;
 	
-	@FindBy(xpath="//input[@value='acf[field_5aa678b4dbea3][]']")
-	private WebElement Key; 
+	@FindBy(xpath="(//input[@value='57'])[3]")
+	private WebElement Central; 
 
-	@FindBy(xpath="//input[@id='publish']")
+	@FindBy(xpath="//input[@class='button button-primary button-large']")
 	private WebElement PublishBtn;
 	
 		public void login() {
@@ -111,7 +115,82 @@ public class RealURLPOM {
 			this.PostTitle.sendKeys(PostTitle);
 		}
 		
-	public void clickPublishBtn() {
+		public void sendText(String Text) {
+			this.Text.clear(); 
+			this.Text.sendKeys(Text); 
+		}
+		
+		public void sendPrice(String Price) {
+			this.Price.clear();
+			this.Price.sendKeys(Price);
+		}
+		
+		public void sendPriceper(String Priceper) {
+			this.Priceper.clear(); 
+			this.Priceper.sendKeys(Priceper); 
+		}
+		
+		public void clickMain() {
+			this.Main.click();
+		}	
+		
+		public void sendStatus(String Status) {
+			this.Status.clear();
+			this.Status.sendKeys(Status);
+		}
+		
+		public void sendlocation(String location) {
+			this.location.clear(); 
+			this.location.sendKeys(location); 
+		}
+		
+		public void sendPossession(String Possession) {
+			this.Possession.clear(); 
+			this.Possession.sendKeys(Possession); 
+		}
+
+		public void clickLocation() {
+			this.Loc.click();
+		}	
+		
+		public void sendAddress(String Address) {
+			this.Address.clear();
+			this.Address.sendKeys(Address);
+		}
+		
+		public void sendGoogleAddress(String GoogleAddress) {
+			this.GoogleAddress.clear(); 
+			this.GoogleAddress.sendKeys(GoogleAddress); 
+		}
+		
+		public void sendLat(String Lat) {
+			this.Lat.clear(); 
+			this.Lat.sendKeys(Lat); 
+		}
+		
+		public void sendLong(String Long) {
+			this.Long.clear(); 
+			this.Long.sendKeys(Long); 
+		}
+
+		public void clickdetails() {
+			this.details.click();
+		}
+		
+		public void sendStore(String Store) {
+			this.Store.clear(); 
+			this.Store.sendKeys(Store); 
+		}
+			
+		public void clickCentral() {
+			this.Central.click();
+		}
+			
+		public void clickPublishBtn() {
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+			jse.executeScript("window.scrollBy(0,-500)");
+			//   Actions act = new Actions(driver);
+		  //  act.moveToElement(PublishBtn);
 		this.PublishBtn.click(); 
 	}
 
